@@ -1,0 +1,106 @@
+{
+  "name": "mage-os/project-community-edition",
+  "description": "Community-built eCommerce Platform for Growth",
+  "type": "project",
+  "license": [
+    "OSL-3.0",
+    "AFL-3.0"
+  ],
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true,
+      "laminas/laminas-dependency-plugin": true,
+      "mage-os/*": true,
+      "php-http/discovery": true
+    },
+    "preferred-install": "dist",
+    "sort-packages": true
+  },
+  "require": {
+    "mage-os/composer-dependency-version-audit-plugin": "4.0.0",
+    "mage-os/composer-root-update-plugin": "4.0.0",
+    "mage-os/module-bundle-sample-data": "4.0.0",
+    "mage-os/module-catalog-rule-sample-data": "4.0.0",
+    "mage-os/module-catalog-sample-data": "4.0.0",
+    "mage-os/module-cms-sample-data": "4.0.0",
+    "mage-os/module-configurable-sample-data": "4.0.0",
+    "mage-os/module-customer-sample-data": "4.0.0",
+    "mage-os/module-downloadable-sample-data": "4.0.0",
+    "mage-os/module-grouped-product-sample-data": "4.0.0",
+    "mage-os/module-msrp-sample-data": "4.0.0",
+    "mage-os/module-offline-shipping-sample-data": "4.0.0",
+    "mage-os/module-product-links-sample-data": "4.0.0",
+    "mage-os/module-review-sample-data": "4.0.0",
+    "mage-os/module-sales-rule-sample-data": "4.0.0",
+    "mage-os/module-sales-sample-data": "4.0.0",
+    "mage-os/module-swatches-sample-data": "4.0.0",
+    "mage-os/module-tax-sample-data": "4.0.0",
+    "mage-os/module-theme-sample-data": "4.0.0",
+    "mage-os/module-widget-sample-data": "4.0.0",
+    "mage-os/module-wishlist-sample-data": "4.0.0",
+    "mage-os/product-community-edition": "4.0.0",
+    "mage-os/sample-data-media": "4.0.0"
+  },
+  "require-dev": {
+    "allure-framework/allure-phpunit": "^3.2",
+    "dealerdirect/phpcodesniffer-composer-installer": "^0.7 || ^1.0",
+    "dg/bypass-finals": "^1.4",
+    "friendsofphp/php-cs-fixer": "^3.22",
+    "inchoo/magento-bricklayer": "^1.18",
+    "mage-os/magento-coding-standard": "4.0.0",
+    "mage-os/magento2-functional-testing-framework": "4.0.0",
+    "pdepend/pdepend": "^3@dev",
+    "phpmd/phpmd": "^3@dev",
+    "phpstan/phpstan": "^1.9",
+    "phpunit/phpunit": "^12.0",
+    "symfony/finder": "^7.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Magento\\Framework\\": "lib/internal/Magento/Framework/",
+      "Magento\\Setup\\": "setup/src/Magento/Setup/",
+      "Magento\\": "app/code/Magento/",
+      "MageOS\\Installer\\": "setup/src/MageOS/Installer/"
+    },
+    "psr-0": {
+      "": [
+        "app/code/",
+        "generated/code/"
+      ]
+    },
+    "files": [
+      "app/etc/NonComposerComponentRegistration.php"
+    ],
+    "exclude-from-classmap": [
+      "**/dev/**",
+      "**/update/**",
+      "**/Test/Fixture/**",
+      "**/Test/Integration/**",
+      "**/Test/Mftf/**",
+      "**/Test/Unit/**"
+    ]
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Magento\\Sniffs\\": "dev/tests/static/framework/Magento/Sniffs/",
+      "Magento\\Tools\\": "dev/tools/Magento/Tools/",
+      "Magento\\Tools\\Sanity\\": "dev/build/publication/sanity/Magento/Tools/Sanity/",
+      "Magento\\TestFramework\\Inspection\\": "dev/tests/static/framework/Magento/TestFramework/Inspection/",
+      "Magento\\TestFramework\\Utility\\": "dev/tests/static/framework/Magento/TestFramework/Utility/",
+      "Magento\\PhpStan\\": "dev/tests/static/framework/Magento/PhpStan/",
+      "MageOS\\Installer\\Test\\": "setup/tests/"
+    }
+  },
+  "prefer-stable": true,
+  "minimum-stability": "stable",
+  "version": "4.0.0",
+  "extra": {
+    "magento-force": "override"
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://repo.mage-os.org/"
+    }
+  ]
+}

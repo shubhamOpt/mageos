@@ -1,0 +1,45 @@
+<?php
+/**
+ * Same HTML for every visitor, so full page cache stays intact. The conversation runs over AJAX.
+ *
+ * @var \Magento\Framework\View\Element\Template $block
+ * @var \Magento\Framework\Escaper $escaper
+ */
+$config = ['url' => $block->getUrl('aiassistant/chat/ask')];
+?>
+<div class="ai-assistant"
+     data-mage-init='<?= $escaper->escapeHtmlAttr(json_encode(['Vendor_AIAssistant/js/chat' => $config])) ?>'>
+    <button type="button" class="ai-assistant__toggle" aria-expanded="false" aria-controls="ai-assistant-panel">
+        <?= $escaper->escapeHtml(__('Ask us')) ?>
+    </button>
+
+    <section id="ai-assistant-panel" class="ai-assistant__panel" hidden
+             aria-label="<?= $escaper->escapeHtmlAttr(__('Store assistant')) ?>">
+        <header class="ai-assistant__header">
+            <strong><?= $escaper->escapeHtml(__('Store assistant')) ?></strong>
+            <button type="button" class="ai-assistant__close" aria-label="<?= $escaper->escapeHtmlAttr(__('Close')) ?>">×</button>
+        </header>
+
+        <div class="ai-assistant__messages" aria-live="polite">
+            <p class="ai-assistant__msg ai-assistant__msg--assistant">
+                <?= $escaper->escapeHtml(__('Hi! Ask me anything, or use a button below.')) ?>
+            </p>
+        </div>
+
+        <div class="ai-assistant__shortcuts">
+            <button type="button" class="ai-assistant__shortcut" data-message="/lastorder">
+                <?= $escaper->escapeHtml(__('Show my last order')) ?>
+            </button>
+            <button type="button" class="ai-assistant__shortcut" data-message="/returnlastorder">
+                <?= $escaper->escapeHtml(__('Return last order')) ?>
+            </button>
+        </div>
+
+        <form class="ai-assistant__form" novalidate>
+            <label for="ai-assistant-input" class="sr-only"><?= $escaper->escapeHtml(__('Your message')) ?></label>
+            <input id="ai-assistant-input" type="text" name="message" maxlength="500" autocomplete="off"
+                   placeholder="<?= $escaper->escapeHtmlAttr(__('Type a message')) ?>">
+            <button type="submit" class="ai-assistant__send"><?= $escaper->escapeHtml(__('Send')) ?></button>
+        </form>
+    </section>
+</div>
